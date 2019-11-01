@@ -10,10 +10,13 @@ TBD
 TBD
 
 ## Built with:
-- EJS
-- Express
+
 - JavaScript
 - Node.js
+- Express
+- EJS
+- Jikan API - [API webpage](https://jikan.docs.apiary.io/)
+
 
 ## Author
 - Eileen - [Minteapixel](https://github.com/minteapixel/)
