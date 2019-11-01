@@ -1,0 +1,16 @@
+<h1>Dashboard</h1>
+
+<div>
+  <% cards.forEach((card) => { %>
+    <div style="display: flex;">
+      <div><img src="<%= card.imageUrl %>" style="width: 100px;"></div>
+      <div>
+        <h2><%= card.name %></h2>
+        <ul>
+          <li>Type: <%= card.type %></li>
+          <li>No. of episodes: <%= card.episodes %></li>
+        </ul>
+      </div>
+    </div>
+  <% }); %>
+</div>

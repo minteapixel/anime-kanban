@@ -1,0 +1,42 @@
+<script type="text/javascript" src="/scripts/form-button.js"></script>
+
+<h1>Search for an anime</h1>
+<h4>searching for: "<%= query %>"</h4>
+<h1>Results</h1>
+<a href="/">Search Again?</a>
+
+<div>
+  <ul>
+    <% data["results"].forEach((anime) => { %>
+      <li>
+        <div style="display: flex; border: 2px solid #232323;">
+          <div><img src="<%= anime["image_url"] %>" style="width: 100px;" /></div>
+          <div>
+            <ul>
+                <li><strong><%= anime["title"] %></strong></li>
+                <li>Type: <%= anime["type"] %></li>
+                <li>
+                  Aired dates: <%= anime["start_date"] %> - <%= anime["end_date"] %>
+                </li>
+                <li>Episodes: <%= anime["episodes"] %></li>
+                <li>
+                  <a href="<%= anime["url"] %>">More info (via MyAnimeList)</a>
+                </li>
+            </ul>
+          </div>
+          <div>
+            <form action="/dashboard" id="form-anime_id-<%= anime["mal_id"]%>" method="POST">
+              <input id="title" type="hidden" name="title" value="<%= anime["title"] %>" />
+              <input id="value" type="hidden" name="type" value="<%= anime["type"] %>" />
+              <input id="episodes" type="hidden" name="episodes" value="<%= anime["episodes"] %>" />
+              <button>Add to 'currently watching' list</button>
+            </form>
+          </div>
+        </div>
+      </li>
+    <% }) %>
+  </ul>
+</div>
+
+
+<a href="/">Search Again?</a>
