@@ -3,7 +3,7 @@
 <h1>Search for an anime</h1>
 <h4>searching for: "<%= query %>"</h4>
 <h1>Results</h1>
-<a href="/">Search Again?</a>
+<a href="/search">Search Again?</a>
 
 <div>
   <ul>
@@ -25,11 +25,21 @@
             </ul>
           </div>
           <div>
-            <form action="/dashboard" id="form-anime_id-<%= anime["mal_id"]%>" method="POST">
-              <input id="title" type="hidden" name="title" value="<%= anime["title"] %>" />
-              <input id="value" type="hidden" name="type" value="<%= anime["type"] %>" />
-              <input id="episodes" type="hidden" name="episodes" value="<%= anime["episodes"] %>" />
-              <button>Add to 'currently watching' list</button>
+            <form action="/dashboard" method="POST">
+                <input type="hidden" name="imageUrl" value="<%= anime["image_url"] %>">
+                <input type="hidden" name="title" value="<%= anime["title"] %>">
+                <input type="hidden" name="type" value="<%= anime["type"] %>">
+                <input type="hidden" name="startDate" value="<%= anime["start_date"] %>">
+                <input type="hidden" name="endDate" value="<%= anime["end_date"] %>">
+                <input type="hidden" name="episodes" value="<%= anime["episodes"] %>">
+                <input type="hidden" name="url" value="<%= anime["url"] %>">
+                <select name="list">
+                  <option name="" value="0">Add this to:</option>
+                  <option value="currWatchList">'Currently Watching' List</option>
+                  <option value="toWatchList">'To Watch' List</option>
+                  <option value="compList">'Completed' List</option>
+                </select>
+                <button>Submit</button>
             </form>
           </div>
         </div>

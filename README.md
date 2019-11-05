@@ -1,5 +1,5 @@
 # AnimeKanban
-A web app inspired by Trello - helps the users organize and keep track of the anime they are watching.
+A web app inspired by Trello - helps the users organize and keep track of the anime shows they are watching.
 
 __A WORK IN PROGRESS__
 

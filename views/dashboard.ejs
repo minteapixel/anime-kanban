@@ -1,14 +1,19 @@
 <h1>Dashboard</h1>
+<div>
+  <a href="/search">Search for show</a>
+  <br /><br /><br />
+</div>
+
 
 <div>
   <% cards.forEach((card) => { %>
     <div style="display: flex;">
       <div><img src="<%= card.imageUrl %>" style="width: 100px;"></div>
       <div>
-        <h2><%= card.name %></h2>
+        <h2><%= card.title %></h2>
         <ul>
           <li>Type: <%= card.type %></li>
-          <li>No. of episodes: <%= card.episodes %></li>
+          <li>Aired on: <%= formatDate(card.startDate) %> - <%= formatDate(card.endDate) %></li>
         </ul>
       </div>
     </div>
