@@ -25,6 +25,7 @@
           <div>
             <form action="/dashboard" method="POST">
                 <input type="hidden" name="imageUrl" value="<%= anime["image_url"] %>">
+                <input type="hidden" name="malId" value="<%= anime["mal_id"] %>">
                 <input type="hidden" name="title" value="<%= anime["title"] %>">
                 <input type="hidden" name="type" value="<%= anime["type"] %>">
                 <input type="hidden" name="startDate" value="<%= anime["start_date"] %>">

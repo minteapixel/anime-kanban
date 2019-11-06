@@ -5,21 +5,36 @@
 </div>
 
 
-<div>
-  <% cards.forEach((card) => { %>
-    <div style="display: flex;">
-      <div><img src="<%= card.imageUrl %>" style="width: 100px;"></div>
-      <div>
-        <h2><%= card.title %></h2>
-        <ul>
-          <li>Type: <%= card.type %></li>
-          <% if (card.startDate == card.endDate) { %>
-            <li>Aired on: <%= formatDate(card.startDate) %></li>
-          <% } else { %>
-            <li>Aired on: <%= formatDate(card.startDate) %> - <%= formatDate(card.endDate) %></li>
-          <% } %>
-        </ul>
-      </div>
+<div> <!-- lists container -->
+  <div id="currWatchList">
+    <h2>Currently Watching</h2>
+    <div>
+      <!-- cards start -->
+      <% cards.forEach((card) => { %>
+        <div style="display: flex;">
+          <div><img src="<%= card.imageUrl %>" style="width: 100px;"></div>
+          <div>
+            <h2><%= card.title %></h2>
+            <ul>
+              <li>Type: <%= card.type %></li>
+              <% if (card.startDate == card.endDate) { %>
+                <li>Aired on: <%= formatDate(card.startDate) %></li>
+              <% } else { %>
+                <li>Aired on: <%= formatDate(card.startDate) %> - <%= formatDate(card.endDate) %></li>
+              <% } %>
+            </ul>
+          </div>
+        </div>
+      <% }); %>
+      <!-- cards end -->
     </div>
-  <% }); %>
-</div>
+  </div>
+  <div id="toWatchList">
+    <h2>To Watch</h2>
+    <div><!-- list of cards go here --></div>
+  </div>
+  <div id="compList">
+    <h2>Completed</h2>
+    <div><!-- list of cards go here --></div>
+  </div>
+</div><!-- end of lists container -->
