@@ -1,9 +1,10 @@
 const express = require("express");
 const app = express();
+const path = require('path');
 const request = require('request');
 const bodyParser = require("body-parser");
-const moment = require('moment');
 const formatDate = require('./utils/formatDate');
+const sassMiddleware = require('node-sass-middleware');
 
 // const mongoose = require("mongoose");
 
@@ -11,7 +12,17 @@ const port = 8000;
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
-app.use(express.static(__dirname + "/public"));
+
+// loading Sass
+app.use(sassMiddleware({
+    src: path.join(__dirname,'sass'),
+    dest: path.join(__dirname, 'public/stylesheets'),
+    debug: true,
+    outputStyle: 'compressed',
+    prefix: '/stylesheets'
+}));
+
+app.use(express.static(path.join(__dirname, "public")));
 
 // seeds
 const cards = [

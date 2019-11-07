@@ -1,0 +1,13 @@
+.list {
+  background-color: $grey;
+  overflow-y: auto;
+  border-radius: 6px;
+  display: flex;
+  justify-content: space-between;
+  padding: $m-size;
+}
+
+.list-header {
+  color: $dark-grey;
+  font-weight: 700;
+}
