@@ -60,7 +60,7 @@ app.get("/results", function(req, res) {
             console.log("request went through successfully");
             const data = JSON.parse(body);
             // res.send(parsedData);
-            res.render("results", { data: data, query : req.query.search });
+            res.render("results", { data: data, query : req.query.search, formatDate });
         } else {
             console.log("error: request didn't go through.");
             res.send('Sorry there was an error. Please go back to the previous page.');

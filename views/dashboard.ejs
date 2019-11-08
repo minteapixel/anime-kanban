@@ -1,42 +1,29 @@
 <% include ./partials/header %>
 
-<h1>Dashboard</h1>
 <div>
-  <a href="/search">Search for show</a>
-  <br /><br /><br />
+  <h1>Dashboard</h1>
+  <p>Add an anime to the list by typing into the search bar below:</p>
+  <div class="searchbar">
+    <form action="/results" method="GET">
+      <input class="searchbar__input" type="text" placeholder="Search for an anime" name="search">
+      <button type=submit><i class="fa fa-search"></i></input>
+    </form>
+  </div>
 </div>
 
-
-<div> <!-- lists container -->
-  <div id="currWatchList">
-    <h2>Currently Watching</h2>
+<div class="list-wrapper"> <!-- lists container -->
+  <div id="currWatchList" class="list">
+    <h2 class="list__title">Currently Watching</h2>
     <div>
-      <!-- cards start -->
-      <% cards.forEach((card) => { %>
-        <div style="display: flex;">
-          <div><img src="<%= card.imageUrl %>" style="width: 100px;"></div>
-          <div>
-            <h2><%= card.title %></h2>
-            <ul>
-              <li>Type: <%= card.type %></li>
-              <% if (card.startDate == card.endDate) { %>
-                <li>Aired on: <%= formatDate(card.startDate) %></li>
-              <% } else { %>
-                <li>Aired on: <%= formatDate(card.startDate) %> - <%= formatDate(card.endDate) %></li>
-              <% } %>
-            </ul>
-          </div>
-        </div>
-      <% }); %>
-      <!-- cards end -->
+      <% include ./partials/cards %>
     </div>
   </div>
-  <div id="toWatchList">
-    <h2>To Watch</h2>
+  <div id="toWatchList" class="list">
+    <h2 class="list__title">To Watch</h2>
     <div><!-- list of cards go here --></div>
   </div>
-  <div id="compList">
-    <h2>Completed</h2>
+  <div id="compList" class="list">
+    <h2 class="list__title">Completed</h2>
     <div><!-- list of cards go here --></div>
   </div>
 </div><!-- end of lists container -->

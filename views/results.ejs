@@ -1,21 +1,27 @@
-<h1>Search for an anime</h1>
-<h4>searching for: "<%= query %>"</h4>
-<h1>Results</h1>
+<% include ./partials/header %>
+
+<h1>Search results</h1>
+<h4>Showing results for: "<%= query %>"</h4>
 <a href="/search">Search Again?</a>
 
-<div>
+<h1>Results</h1>
+
+<div> <!-- results list -->
   <ul>
     <% data["results"].forEach((anime) => { %>
       <li>
-        <div style="display: flex; border: 2px solid #232323;">
+        <div class="card">
           <div><img src="<%= anime["image_url"] %>" style="width: 100px;" /></div>
           <div>
             <ul>
                 <li><strong><%= anime["title"] %></strong></li>
                 <li>Type: <%= anime["type"] %></li>
-                <li>
-                  Aired dates: <%= anime["start_date"] %> - <%= anime["end_date"] %>
-                </li>
+                <% if (anime["start_date"] == anime["end_date"]) { %>
+                  <li>Aired on: <%= formatDate(anime["start_date"]) %></li>
+                <% } else { %>
+                  <li>Aired on: <%= formatDate(anime["start_date"]) %> - <%= formatDate(anime["end_date"]) %></li>
+                <% } %>
+
                 <li>Episodes: <%= anime["episodes"] %></li>
                 <li>
                   <a href="<%= anime["url"] %>">More info (via MyAnimeList)</a>
@@ -49,3 +55,5 @@
 
 
 <a href="/">Search Again?</a>
+
+<% include ./partials/footer %>
