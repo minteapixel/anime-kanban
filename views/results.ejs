@@ -1,58 +1,37 @@
 <% include ./partials/header %>
+<section>
+  <h1>Search results</h1>
+  <h3>Showing results for: "<%= query %>"</h3>
+  Need to search again?
+  <% include ./partials/searchbar %>
+</section>
 
-<h1>Search results</h1>
-<h4>Showing results for: "<%= query %>"</h4>
-<a href="/search">Search Again?</a>
+<section class="container--flex-col container--flex-col--center"> <!-- results list -->
+  <h1>Results</h1>
+  <% data["results"].forEach((anime) => { %>
+    <div class="card card--results">
+      <div><img src="<%= anime["image_url"] %>" style="width: 100px;" /></div>
+      <div class="card__content card__content--border-right card__content--half-width">
+        <h4 class="card__title"><%= anime["title"] %></h4>
+        <ul>
+            <li>Type: <%= anime["type"] %></li>
+            <% if (anime["start_date"] == anime["end_date"]) { %>
+              <li>Show date: <%= formatDate(anime["start_date"]) %></li>
+            <% } else { %>
+              <li>Show dates: <%= formatDate(anime["start_date"]) %> - <%= formatDate(anime["end_date"]) %></li>
+            <% } %>
 
-<h1>Results</h1>
-
-<div> <!-- results list -->
-  <ul>
-    <% data["results"].forEach((anime) => { %>
-      <li>
-        <div class="card">
-          <div><img src="<%= anime["image_url"] %>" style="width: 100px;" /></div>
-          <div>
-            <ul>
-                <li><strong><%= anime["title"] %></strong></li>
-                <li>Type: <%= anime["type"] %></li>
-                <% if (anime["start_date"] == anime["end_date"]) { %>
-                  <li>Aired on: <%= formatDate(anime["start_date"]) %></li>
-                <% } else { %>
-                  <li>Aired on: <%= formatDate(anime["start_date"]) %> - <%= formatDate(anime["end_date"]) %></li>
-                <% } %>
-
-                <li>Episodes: <%= anime["episodes"] %></li>
-                <li>
-                  <a href="<%= anime["url"] %>">More info (via MyAnimeList)</a>
-                </li>
-            </ul>
-          </div>
-          <div>
-            <form action="/dashboard" method="POST">
-                <input type="hidden" name="imageUrl" value="<%= anime["image_url"] %>">
-                <input type="hidden" name="malId" value="<%= anime["mal_id"] %>">
-                <input type="hidden" name="title" value="<%= anime["title"] %>">
-                <input type="hidden" name="type" value="<%= anime["type"] %>">
-                <input type="hidden" name="startDate" value="<%= anime["start_date"] %>">
-                <input type="hidden" name="endDate" value="<%= anime["end_date"] %>">
-                <input type="hidden" name="episodes" value="<%= anime["episodes"] %>">
-                <input type="hidden" name="url" value="<%= anime["url"] %>">
-                <select name="list">
-                  <option name="" value="0">Add this to:</option>
-                  <option value="currWatchList">'Currently Watching' List</option>
-                  <option value="toWatchList">'To Watch' List</option>
-                  <option value="compList">'Completed' List</option>
-                </select>
-                <button>Submit</button>
-            </form>
-          </div>
-        </div>
-      </li>
-    <% }) %>
-  </ul>
-</div>
-
+            <li>Episodes: <%= anime["episodes"] %></li>
+            <li>
+              <a href="<%= anime["url"] %>">More info (via MyAnimeList)</a>
+            </li>
+        </ul>
+      </div>
+      <!-- form section of card-->
+      <% include ./partials/form %>
+    </div>
+  <% }) %>
+</section>
 
 <a href="/">Search Again?</a>
 

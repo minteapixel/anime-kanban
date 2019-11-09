@@ -1,6 +1,8 @@
 .navbar {
   padding: $m-size;
   background-color: $grey;
+  display: flex;
+  justify-content: space-between;
 }
 
 .navbar__logo {
@@ -14,8 +16,10 @@
   text-decoration: none;
 }
 
-// .navbar__content {
-//   display: flex;
-// }
+.navbar__menu {
+  display: flex;
+}
 
-// .navbar__item {}
+.navbar__menu__item {
+  margin-left: 2.4rem;
+}

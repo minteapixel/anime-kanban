@@ -3,12 +3,7 @@
 <div>
   <h1>Dashboard</h1>
   <p>Add an anime to the list by typing into the search bar below:</p>
-  <div class="searchbar">
-    <form action="/results" method="GET">
-      <input class="searchbar__input" type="text" placeholder="Search for an anime" name="search">
-      <button type=submit><i class="fa fa-search"></i></input>
-    </form>
-  </div>
+  <% include ./partials/searchbar %>
 </div>
 
 <div class="list-wrapper"> <!-- lists container -->

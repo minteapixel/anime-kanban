@@ -1,3 +1,7 @@
 # development
+.git
 /node_modules
 /public/playground
+/sass/.DS_Store
+
+# MISC

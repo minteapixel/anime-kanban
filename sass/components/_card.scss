@@ -4,17 +4,47 @@
   padding: $m-size;
   margin-bottom: $m-size;
   border-radius: 6px;
+  @media(max-width: $tablet-breakpoint) {
+    flex-direction: column;
+  }
 }
 
 .card__content {
-  padding-left: $m-size;
+  padding: 0 $m-size;
+}
+
+.card__content--border-right {
+  border-right: 1px solid rgba(0,0,0,0.2);
+  @media(max-width: $tablet-breakpoint) {
+    border-right: none;
+  }
+}
+
+.card__content--half-width{
+  width: 50%;
+  @media(max-width: $tablet-breakpoint) {
+    width: 100%;
+  }
 }
 
 .card__title {
   font-size: $font-size-large;
   margin: 0;
+  word-break: break-word;
 }
 
 // .card__subcontent{
 //   color: $;
 // }
+
+// classes used on results page
+.card--results {
+  width: 80vw;
+}
+
+.card__form-container {
+  display: flex;
+  @media (max-width: $tablet-breakpoint) {
+    flex-direction: column;
+  }
+}

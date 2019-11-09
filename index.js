@@ -27,7 +27,7 @@ app.use(express.static(path.join(__dirname, "public")));
 // seeds
 const cards = [
     { title: "Kimetsu no Yaiba", imageUrl: "https://cdn.myanimelist.net/images/anime/1286/99889.jpg?s=e497d08bef31ae412e314b90a54acfda", type: "TV", episodes: "26", startDate:"2019-11-05T22:43:13+00:00", endDate:"1993-02-27T00:00:00+00:00", malId: 1234 },
-    { title: "Fruits Basket", imageUrl: "https://cdn.myanimelist.net/images/anime/1447/99827.jpg?s=e7fe0a2c22c4868dc7b3bde0d61085f9", type: "TV", episodes: "23", startDate:"2019-11-05T22:43:13+00:00", endDate:"2019-11-05T22:43:13+00:00", malId: 1231 },
+    { title: "adlkjflkdjdfalkjdgoweiasdlfj Tsdkldjg  Rdlkgdja;ldkdjfa;lkdfj", imageUrl: "https://cdn.myanimelist.net/images/anime/1447/99827.jpg?s=e7fe0a2c22c4868dc7b3bde0d61085f9", type: "TV", episodes: "23", startDate:"2019-11-05T22:43:13+00:00", endDate:"2019-11-05T22:43:13+00:00", malId: 1231 },
     { title: "Violette Evergarden", imageUrl: "https://cdn.myanimelist.net/images/anime/1795/95088.jpg?s=9e24a139603a4e0ea8ea055a230b54d5", type: "TV", episodes: "12", startDate:"2019-11-05T22:43:13+00:00", endDate:"1993-02-27T00:00:00+00:00", malId: 1214 }
 ];
 
@@ -39,12 +39,15 @@ app.get("/dashboard", function(req, res){
     res.render("dashboard", { cards, formatDate });
 });
 
-app.post("/dashboard", (req, res) => {
+app.post("/dashboard", (req, res, err) => {
     let { title, imageUrl, type, episodes, startDate, endDate, list, malId } = req.body;
     let newCard = { title, imageUrl, type, episodes, startDate, endDate, list, malId };
-    console.log(newCard);
-    cards.push(newCard);
-    res.redirect("/dashboard");
+    if (list == '') {
+        return res.status(422).send('Oops! Please select a list.');
+    } else {
+        cards.push(newCard);
+        return res.redirect("/dashboard");
+    };
 });
 
 app.get("/search", (req, res) => (

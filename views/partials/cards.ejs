@@ -12,13 +12,13 @@
           <li>Type: <%= card.type %></li>
           <!-- episodes -->
           <% if (card.type !== 'Movie') { %>
-            <li>No. of Episodes: <%= card.episodes %></li>
+            <li>Episodes: <%= card.episodes %></li>
           <% } %>
           <!-- aired dates -->
           <% if (card.startDate == card.endDate) { %>
-            <li>Aired on: <%= formatDate(card.startDate) %></li>
+            <li>Show date: <%= formatDate(card.startDate) %></li>
           <% } else { %>
-            <li>Aired on: <%= formatDate(card.startDate) %> - <%= formatDate(card.endDate) %></li>
+            <li>Show dates: <%= formatDate(card.startDate) %> - <%= formatDate(card.endDate) %></li>
           <% } %>
         </ul>
       </div>

@@ -1,4 +1,13 @@
 .container {
-	margin: 0 auto;
 	padding: 0 $m-size;
+	flex: 1 0 auto;
+}
+
+.container--flex-col {
+	display: flex;
+	flex-direction: column;
+}
+
+.container--flex-col--center {
+	align-items: center;
 }

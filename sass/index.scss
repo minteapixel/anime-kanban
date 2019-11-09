@@ -1,10 +1,14 @@
 // @import '../node_modules/normalize.css/normalize';
 @import './base/_settings';
 @import './base/_base';
+@import './bulma/utilities/_all.sass';
+@import './bulma/elements/button.sass';
+@import './bulma/form/_all.sass';
 
 @import './components/_container';
 @import './components/_list';
 @import './components/_card';
 @import './components/_footer';
+@import './components/_form';
 @import './components/_navbar';
 @import './components/_searchbar';

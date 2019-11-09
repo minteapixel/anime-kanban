@@ -7,8 +7,16 @@ $dark-blue: #182d53;
 
 // Font Sizes =========
 $font-size-large: 1.8rem;
+$font-size-default: 1.6rem;
 $font-size-small: 1.4rem;
 
 // Spacing (i.e. padding, margins, etc.) ========
+$xxl-size: 4.8rem;
+$xl-size: 3.2rem;
+$l-size: 2.4rem;
 $m-size: 1.6rem;
-$s-size: 1.4rem;
+$s-size: 1.2rem;
+
+// Breakpoints for media queries
+$tablet-breakpoint: 76.8rem;
+$mobile-breakpoint: 37.5rem;
