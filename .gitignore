@@ -3,5 +3,7 @@
 /node_modules
 /public/playground
 /sass/.DS_Store
+seeds.js
 
 # MISC
+.DS_Store
